@@ -1,0 +1,31 @@
+{% set version = "5.2.1" %}
+{% set sha256 = "c3797029a341e000f80ccd077853f177dd371f5d41f536f6adeb61c6d96e27cb" %}
+
+package:
+  name: cat
+  version: {{ version }}
+
+source:
+  url: https://github.com/dutilh/CAT/archive/v{{ version }}.tar.gz
+  sha256: {{ sha256 }} 
+
+build:
+  number: 0
+  noarch: generic
+
+requirements:
+  run:
+    - python 3
+    - diamond
+    - prodigal
+
+test:
+  commands:
+    - CAT prepare --help
+
+about:
+  summary: |
+    CAT/BAT: tool for taxonomic classification of contigs and metagenome-assembled genomes (MAGs)
+  home: https://github.com/dutilh/CAT
+  license: MIT
+  license_file: LICENSE.md
